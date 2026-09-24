@@ -1,0 +1,68 @@
+AUTHORIZED PLATE DATABASE
+=========================
+
+The Vehicle / Number Plate demo uses this folder:
+
+database/authorized_plates/
+
+The system reads authorized plate numbers and compares them against OCR text.
+
+SUPPORTED FORMATS
+-----------------
+1. Text file (.txt)
+   Put one plate number per line.
+
+   Example plates.txt:
+   GJXX1234
+   GJXX4567
+   GJXX7890
+
+2. CSV (.csv)
+   Put plate numbers in fields/rows.
+
+3. JSON (.json)
+   Plate strings may be contained in lists/dictionaries.
+
+4. Plate image files (.jpg/.jpeg/.png/.bmp/.webp)
+   Best option for a visual database: name the image using the plate number.
+
+   Example:
+   GJXX1234.jpg
+   GJXX4567.jpg
+
+   The filename is used as the authorized plate number.
+
+5. Image files with non-plate filenames
+   The backend attempts OCR once and caches the result.
+
+OCR WORKFLOW
+------------
+Vehicle video frame
+        |
+        v
+Dedicated license-plate YOLO model
+        |
+        v
+Plate crop
+        |
+        v
+Tesseract OCR
+        |
+        v
+Normalize OCR text
+        |
+        v
+Compare with database/authorized_plates
+        |
+        +--> MATCH -> AUTHORIZED VEHICLE
+        |
+        +--> NO MATCH -> UNRECOGNIZED VEHICLE
+        |
+        +--> NO USABLE OCR -> UNVERIFIED OCR
+
+IMPORTANT
+---------
+Do not manually type a result into the analysis output.
+The result is produced from plate detection + OCR + database comparison.
+
+For the demo, use synthetic/demo plate numbers rather than private vehicle-owner data.

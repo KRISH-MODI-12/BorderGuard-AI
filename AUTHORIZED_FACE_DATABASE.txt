@@ -1,0 +1,18 @@
+AUTHORIZED FACE DATABASE
+
+Add authorized-person photos to:
+database/authorized_faces/
+
+For a new identity AUTH-003, multiple samples are supported:
+AUTH-003.jpg
+AUTH-003-front.jpg
+AUTH-003-left.jpg
+AUTH-003-right.jpg
+AUTH-003-side.jpg
+AUTH-003-full-right.jpg
+
+All files beginning with AUTH-003 are grouped into the same identity.
+Use the same naming pattern for AUTH-004, AUTH-005, and so on.
+
+After adding/replacing photos, reload the AI engine from AI Tools -> Reload,
+or restart FastAPI. The face database cache is then rebuilt.
