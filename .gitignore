@@ -8,6 +8,8 @@ __pycache__/
 
 # Generated video outputs
 *_processed.mp4
+processed/
+*_processed.mp4
 
 # Generated/test output folders
 outputs/
