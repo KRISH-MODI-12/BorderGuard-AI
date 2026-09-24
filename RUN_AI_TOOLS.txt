@@ -1,0 +1,42 @@
+RUN THE WEBSITE
+
+1. Open CMD.
+
+2. Go to your project:
+cd "C:\Users\KRISH\OneDrive\Desktop\mystreamlitapp\New folder"
+
+3. Install:
+python -m pip install -r requirements.txt
+
+4. Check AI tools:
+python check_ai_tools.py
+
+5. Start:
+python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8001
+
+6. Open:
+http://127.0.0.1:8001
+
+IMPORTANT:
+- Models may be in the project root OR models\.
+- YOLO: yolo26n.pt
+- YuNet: face_detection_yunet_2023mar.onnx or face_detection_yunet_2026may.onnx
+- SFace: face_recognition_sface_2021dec.onnx
+- Plate YOLO: license_plate_yolov8n.pt
+- Tesseract OCR must have the Tesseract executable installed on Windows.
+- If you add/replace model files while the server is running, call:
+  POST http://127.0.0.1:8001/api/tools/reload
+  or restart Uvicorn.
+
+AI ENDPOINTS
+POST /api/tools/detect
+POST /api/tools/face-detect
+POST /api/tools/face-recognize
+POST /api/tools/plate-detect
+POST /api/tools/run-all
+GET  /api/tools/status
+POST /api/tools/reload
+POST /api/analyze/frame
+POST /api/demo/analyze
+GET  /api/demo/jobs/{job_id}
+GET  /api/demo/jobs/{job_id}/live

@@ -1,0 +1,22 @@
+# Python
+venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Generated videos
+*_processed.mp4
+outputs/
+processed/
+
+# Old README files
+README.old.md
+OLD-README.md
+
+# Private biometric data
+database/authorized_faces/
+AUTHORIZED_FACE_DATABASE.txt
+AUTHORIZED_PLATE_DATABASE.txt

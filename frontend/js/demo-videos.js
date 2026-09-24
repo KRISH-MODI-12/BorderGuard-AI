@@ -1,0 +1,4 @@
+const scenario=document.querySelector('#scenario'), threshold=document.querySelector('#threshold'), thresholdBox=document.querySelector('#thresholdBox'), thresholdValue=document.querySelector('#thresholdValue'), video=document.querySelector('#demoVideo'), file=document.querySelector('#videoFile'), status=document.querySelector('#videoStatus');
+scenario.onchange=()=>{thresholdBox.style.display=scenario.value==='Railway - Unattended Object'?'block':'none'}; threshold.oninput=()=>thresholdValue.textContent=threshold.value;
+file.onchange=()=>{if(file.files[0]){video.src=URL.createObjectURL(file.files[0]);video.play().catch(()=>{});status.textContent='Browser playback is running independently from AI/API refreshes.'}};
+fetch('/api/videos').then(r=>r.json()).then(d=>{if(d.videos.length&&!video.src){video.src=d.videos[0].url;status.textContent=`Loaded ${d.videos[0].name}`}}).catch(()=>{});

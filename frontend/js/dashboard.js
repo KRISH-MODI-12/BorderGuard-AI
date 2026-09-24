@@ -1,0 +1,1 @@
+const box=document.querySelector('#metrics');fetch('/api/dashboard').then(r=>r.json()).then(d=>box.innerHTML=Object.entries(d).map(([k,v])=>`<div class="card"><div class="muted">${k.replaceAll('_',' ')}</div><div class="metric">${v}</div></div>`).join(''));
