@@ -1,3 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment / secrets
+.env
+
+# Generated video outputs
+*_processed.mp4
+
+# Generated/test output folders
+outputs/
+processed/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
